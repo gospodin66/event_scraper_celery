@@ -1,0 +1,8 @@
+cd event_scraper_celery
+
+# run celery
+celery -A src.tasks worker --loglevel=info -Q scraper_tasks
+
+# monitor tasks
+celery -A webserver.src.tasks flower
+
