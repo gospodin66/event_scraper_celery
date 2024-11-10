@@ -9,13 +9,13 @@ celery = Celery('tasks',
                 backend='rpc://')
 
 # Load additional configurations
-celery.config_from_object('src.celeryconfig')
+celery.config_from_object('event_scraper_celery.celeryconfig')
 
 @celery.task(bind=True)
 def run_scraper_task(self):
     try:
         # Get path to scraper script
-        script_path = Path(__file__).parent.parent.parent / 'event_scraper' / 'src' / 'init.py'
+        script_path = Path(__file__).parent.parent / 'event_scraper' / 'src' / 'init.py'
         
         if not script_path.exists():
             raise FileNotFoundError(f"Scraper script not found at: {script_path}")
