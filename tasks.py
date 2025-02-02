@@ -22,7 +22,6 @@ def run_scraper_task(self):
             stderr=subprocess.PIPE,
             text=True
         )
-        
         output, error = process.communicate()
 
         if process.returncode != 0:
