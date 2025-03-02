@@ -2,7 +2,7 @@ from os import getenv
 
 RABBITMQ_USER = getenv('RABBITMQ_USER', 'guest')
 RABBITMQ_PASSWORD = getenv('RABBITMQ_PASSWORD', 'guest')
-RABBITMQ_HOST = getenv('RABBITMQ_HOST', 'rabbitmq')
+RABBITMQ_HOST = getenv('RABBITMQ_HOST', '127.0.0.1')
 # Kubernetes is injecting the full service URL instead of just the port number
 # Handle both plain port numbers and full TCP URLs
 raw_port = getenv('RABBITMQ_PORT', '5672')
